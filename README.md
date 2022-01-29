@@ -8,22 +8,19 @@
 
 This repo contains two powershell scripts to deploy an local administrator account on windows 10 clients. 
 
-W10_CreateUser_ladmin_withoutPassword.ps1 creates an local admin account (ladmin) without an password. The password has to be set on first login
-
-W10_CreateUser_ladmin_withPassword.ps1 creates an local admin account (ladmin) with an password. The password has to be set in the variable $Password
+INSTALL-LocalAdminWithoutPassword.ps1 creates an local admin account (ladmin) without an password. The password has to be set on first login
+INSTALL-LocalAdminWithPassword.ps1 creates an local admin account (ladmin) with an password. The password has to be set in the variable $Password
 
 ## Install:
 ```powershell
-PowerShell.exe -ExecutionPolicy Bypass -Command .\W10_CreateUser_ladmin.ps1
-PowerShell.exe -ExecutionPolicy Bypass -Command .\W10_CreateUser_ladmin_withoutPassword.ps1 -install
-
-...
+C:\Windows\SysNative\WindowsPowershell\v1.0\PowerShell.exe -ExecutionPolicy Bypass -Command .\INSTALL-LocalAdminWithPassword.ps1 -install
+C:\Windows\SysNative\WindowsPowershell\v1.0\PowerShell.exe -ExecutionPolicy Bypass -Command .\INSTALL-LocalAdminWithoutPassword.ps1 -install
 ```
 
 ## Uninstall:
 ```powershell
-PowerShell.exe -ExecutionPolicy Bypass -Command .\W10_CreateUser_ladmin_withoutPassword.ps1 -uninstall
-...
+C:\Windows\SysNative\WindowsPowershell\v1.0\PowerShell.exe -ExecutionPolicy Bypass -Command .\INSTALL-LocalAdminWithPassword.ps1 -uninstall
+C:\Windows\SysNative\WindowsPowershell\v1.0\PowerShell.exe -ExecutionPolicy Bypass -Command .\INSTALL-LocalAdminWithoutPassword.ps1 -uninstall
 ```
 
 ### Parameter definitions:
