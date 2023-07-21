@@ -17,8 +17,8 @@ $ErrorActionPreference = 'Stop'
 $logFile = ('{0}\{1}.log' -f "C:\Windows\Logs", [System.IO.Path]::GetFileNameWithoutExtension($MyInvocation.MyCommand.Name))
 
 #Test if registry folder exists
-if ($true -ne (test-Path -Path "HKLM:\SOFTWARE\OS")) {
-    New-Item -Path "HKLM:\SOFTWARE\" -Name "OS" -Force
+if ($true -ne (test-Path -Path "HKLM:\SOFTWARE\COMPANY")) {
+    New-Item -Path "HKLM:\SOFTWARE\" -Name "COMPANY" -Force
 }
 
 Start-Transcript -path $logFile
@@ -49,7 +49,7 @@ Write-Host "Ensuring password for $Username never expires."
 & WMIC USERACCOUNT WHERE "Name='$Username'" SET PasswordExpires=FALSE
 
 #Register package in registry
-New-Item -Path "HKLM:\SOFTWARE\OS\" -Name "LocalAdminWithPassword"
-New-ItemProperty -Path "HKLM:\SOFTWARE\OS\LocalAdminWithPassword" -Name "Version" -PropertyType "String" -Value "1.0.0" -Force 
+New-Item -Path "HKLM:\SOFTWARE\COMPANY\" -Name "LocalAdminWithPassword"
+New-ItemProperty -Path "HKLM:\SOFTWARE\COMPANY\LocalAdminWithPassword" -Name "Version" -PropertyType "String" -Value "1.0.0" -Force 
 
 Stop-Transcript
