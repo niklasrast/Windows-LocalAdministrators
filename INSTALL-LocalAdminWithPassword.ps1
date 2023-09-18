@@ -24,7 +24,8 @@ if ($true -ne (test-Path -Path "HKLM:\SOFTWARE\COMPANY")) {
 Start-Transcript -path $logFile
 
 $Username = "ladmin"
-$Password = "P444w0rd1234."
+#$Password = "P444w0rd1234."
+$Password = [System.Web.Security.Membership]::GeneratePassword(20,0)
 
 $group = (Get-WmiObject win32_group -filter "LocalAccount = $TRUE And SID = 'S-1-5-32-544'" | Select-Object -expand name)
 
